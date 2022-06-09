@@ -11,7 +11,7 @@ const scrapper = new Client({
 
 async function main() {
    const tag2Scrap = readline.question('Tag To Scrap: ').trim()
-   const token = readline.question('Token Bot: ').trim()
+   const token = readline.question('Token Bot: ', { hideEchoBack: true }).trim()
    
    scrapper.once('ready', async () => {
       console.log(`Logged on as ${scrapper.user.tag}! :)`)
@@ -25,6 +25,8 @@ async function main() {
 
          const names = role.members.map(m => m.user.username.trim())
          fs.writeFileSync('./src/output/names.txt', names.join('\n'), { encoding: 'utf-8' })
+         
+         process.exit()
       }
    })
 
