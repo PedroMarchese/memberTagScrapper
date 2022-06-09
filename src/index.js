@@ -2,6 +2,7 @@ const { Client, Intents: { FLAGS }} = require('discord.js')
 const readline = require('readline-sync')
 const fs = require('fs')
 
+// Instancing client as scrapper and putting required intents
 const scrapper = new Client({
    intents: [
       FLAGS.GUILDS,
@@ -9,6 +10,10 @@ const scrapper = new Client({
    ]
 })
 
+/**
+ * this is the main function which runs all program execution cuz it's a stupid script
+ * @author Raskolnikov
+ */
 async function main() {
    const tag2Scrap = readline.question('Tag To Scrap: ').trim()
    const token = readline.question('Token Bot: ', { hideEchoBack: true }).trim()
